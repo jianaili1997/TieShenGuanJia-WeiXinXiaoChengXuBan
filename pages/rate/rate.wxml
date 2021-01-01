@@ -1,0 +1,47 @@
+<!--pages/rate/rate.wxml-->
+<view>
+   <view class="pages-box">
+<view class="fs32 fc99">
+请输入要计算的汇率</view>   
+   </view>
+<!--下拉菜单-->
+<van-dropdown-menu>
+  <van-dropdown-item value="{{ value1 }}" options="{{ option }}"  bind:change="onSwitch1Change"/>
+  <van-dropdown-item value="{{ value2 }}" options="{{ option }}" bind:change="onSwitch2Change"/>
+</van-dropdown-menu>
+ <!--  提交按钮  -->
+    <view class="btn-box">
+      <button class="btn fs32" bindtap="getdata">
+        计 算
+      </button>
+    </view>
+     <!--  详细信息  -->
+  <view class="det-box {{show?'':'dp-n'}}">
+    <view class="pg-t fs36 fc99">
+      详细信息
+    </view>
+      <view class="pglist fc99">
+      <view class="pg-l fs32">起始货币：</view>
+      <view class="pg-r fs32">{{getdata.currencyF_Name}}</view>
+    </view>
+
+      <view class="pglist fc99">
+      <view class="pg-l fs32">目标货币：</view>
+      <view class="pg-r fs32">{{getdata.currencyT_Name}}</view>
+    </view>
+
+      <view class="pglist fc99">
+      <view class="pg-l fs32">exchange</view>
+      <view class="pg-r fs32">{{getdata.exchange}}</view>
+    </view>
+<view class="pglist fc99">
+      <view class="pg-l fs32">result：</view>
+      <view class="pg-r fs32">{{getdata.result}}</view>
+    </view>
+    <view class="pglist fc99">
+      <view class="pg-l fs32">更新时间：</view>
+      <view class="pg-r fs32">{{getdata.updateTime}}</view>
+    </view>
+  </view>
+</view>
+  
