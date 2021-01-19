@@ -16,6 +16,7 @@
     <!--服务  -->
     <view class="">
       <view class="server-text fs26">服 务</view>
+          <view class="server-text fs26" style="float:right;border:none">more</view>
     </view>
     <!--列表  -->
     <view class="list-server">

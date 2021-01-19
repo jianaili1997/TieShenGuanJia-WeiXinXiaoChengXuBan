@@ -16,7 +16,8 @@
     "pages/calculator-index/index",
     "pages/calculator-history/history",
     "pages/gojuuonn/gojuuonn",
-    "pages/rate/rate"
+    "pages/rate/rate",
+    "pages/more/more"
   ],
   "window": {
     "navigationBarTextStyle": "black",
