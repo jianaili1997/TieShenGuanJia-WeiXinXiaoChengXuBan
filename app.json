@@ -17,7 +17,8 @@
     "pages/calculator-history/history",
     "pages/gojuuonn/gojuuonn",
     "pages/rate/rate",
-    "pages/more/more"
+    "pages/more/more",
+    "pages/epidemic/epidemic"
   ],
   "window": {
     "navigationBarTextStyle": "black",
