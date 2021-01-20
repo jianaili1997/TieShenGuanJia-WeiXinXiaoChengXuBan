@@ -1,3 +1,14 @@
 <!-- 疫情 -->
 <!--pages/epidemic/epidemic.wxml-->
-<text>pages/epidemic/epidemic.wxml</text>
+<view>
+<view class="pages-box">
+<view class="fs32 fc99">
+请选择城市
+</view>
+  <!-- 组件-->  
+  <van-picker columns="{{ columns }}" bind:change="onChange" />
+   </view>
+</view>
+
+
+
