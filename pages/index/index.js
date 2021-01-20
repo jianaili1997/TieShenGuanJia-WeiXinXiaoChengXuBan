@@ -8,18 +8,17 @@ Page({
     imgUrls: [{
       img: "../../images/EmptyBanner.jpg",
       openpath: "../../pages/figure/figure"
-    },{
-        img: "../../images/EmptyBanner1.jpg",
-        openpath: "../../pages/bankQuery/bankQuery"
-    },{
-        img: "../../images/EmptyBanner2.jpg",
-        openpath: "../../pages/IDCard/IDCard"
-    },{
-        img: "../../images/EmptyBanner3.jpg",
-        openpath: "../../pages/MobileHome/MobileHome"
+    }, {
+      img: "../../images/EmptyBanner1.jpg",
+      openpath: "../../pages/bankQuery/bankQuery"
+    }, {
+      img: "../../images/EmptyBanner2.jpg",
+      openpath: "../../pages/IDCard/IDCard"
+    }, {
+      img: "../../images/EmptyBanner3.jpg",
+      openpath: "../../pages/MobileHome/MobileHome"
     }],
-    server: [
-      {
+    server: [{
         img: "../../images/sfz.png",
         openpath: "../../pages/IDCard/IDCard",
         text: "身份证查询"
@@ -75,14 +74,13 @@ Page({
         text: "2048"
       },
       {
-        img:"../../images/rate.png",
-        openpath:"../../pages/rate/rate",
-        text:"汇率"
+        img: "../../images/rate.png",
+        openpath: "../../pages/rate/rate",
+        text: "汇率"
       }
-      
+
     ],
-    unserver: [
-      {
+    unserver: [{
         img: "../../images/kd.png",
         openpath: "../../pages/",
         text: "全国快递"
