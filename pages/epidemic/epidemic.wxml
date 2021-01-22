@@ -5,9 +5,78 @@
 <view class="fs32 fc99">
 请选择城市
 </view>
+<view>
+<!--开始城市-->
+<van-cell-group>
+  <van-field
+   label="开始城市"
+    value="{{ startCity }}"
+    placeholder="请选择开始城市"
+    border="{{ false }}"
+    bind:focus="onFocus"
+    bind:blur="onBlur"
+    data-status="1"
+  />
+</van-cell-group>
+<!-- 结束城市 -->
+<van-cell-group>
+  <van-field
+   label="结束城市"
+    value="{{ endCity }}"
+    placeholder="请选择结束城市"
+    border="{{ false }}"
+    bind:focus="onFocus"
+     bind:blur="onBlur"
+    data-status="2"
+  />
+</van-cell-group>
+<van-button plain hairline type="info" bind:click="query">查 询</van-button>
+</view>
   <!-- 组件-->  
-  <van-picker columns="{{ columns }}" bind:change="onChange" />
+  <van-picker value-key="name" class="{{showPicker ? 'show' : 'hide'}}"  columns="{{ columns }}" bind:change="onChange" bind:confirm="onConfirm" show-toolbar bind:cancel="onCancel"/>
    </view>
+
+<!-- 查询到的详细信息 -->
+<view class="det-box {{show?'':'dp-n'}}">
+ <view class="pg-t fs36 fc99">
+      详细信息
+    </view>
+    <!-- 风险等级 -->
+    <view class="pglist fc99">
+      <view class="pg-l fs32">风险等级：</view>
+      <view class="pg-r fs32">{{getdata.to_info.risk_level}}</view>
+    </view>
+<!-- 新增确诊 -->
+  <view class="pglist fc99">
+      <view class="pg-l fs32">新增确诊: </view>
+      <view class="pg-r fs32">{{getdata.to_covid_info.today_confirm}}</view>
+    </view>
+<!-- 累计确诊 -->
+ <view class="pglist fc99">
+      <view class="pg-l fs32">累计确诊: </view>
+      <view class="pg-r fs32">{{getdata.to_covid_info.total_confirm}}</view>
+    </view>
+<!-- 治愈 -->
+<view class="pglist fc99">
+      <view class="pg-l fs32">治愈: </view>
+      <view class="pg-r fs32">{{getdata.to_covid_info.total_heal}}</view>
+    </view>
+    <!-- 死亡 -->
+<view class="pglist fc99">
+      <view class="pg-l fs32">死亡: </view>
+      <view class="pg-r fs32">{{getdata.to_covid_info.total_dead}}</view>
+    </view>
+    <!-- 更新时间 -->
+<view class="pglist fc99">
+      <view class="pg-l fs32">更新时间: </view>
+      <view class="pg-r fs32">{{getdata.to_covid_info.updated_at}}</view>
+    </view>
+    <!-- 今日是否更新 -->
+    <view class="pglist fc99">
+      <view class="pg-l fs32">今日是否更新: </view>
+      <view class="pg-r fs32">{{getdata.to_covid_info.is_updated}}</view>
+    </view>
+</view>
 </view>
 
 
