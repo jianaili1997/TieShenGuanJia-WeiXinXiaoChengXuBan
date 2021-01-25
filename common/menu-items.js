@@ -1,5 +1,10 @@
 // 功能菜单项
 const server = [{
+    img: "../../images/epidemic.png",
+    openpath: "../../pages/epidemic/epidemic",
+    text: "疫情"
+  },
+  {
     img: "../../images/sfz.png",
     openpath: "../../pages/IDCard/IDCard",
     text: "身份证查询"
@@ -59,11 +64,6 @@ const server = [{
     openpath: "../../pages/rate/rate",
     text: "汇率"
   },
-  {
-    img: "../../images/epidemic.png",
-    openpath: "../../pages/epidemic/epidemic",
-    text: "疫情"
-  }
 ]
 // 待开发,以后会放到server里面去
 const unserver = [{
