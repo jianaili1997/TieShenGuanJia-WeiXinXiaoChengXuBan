@@ -18,7 +18,10 @@
     "pages/gojuuonn/gojuuonn",
     "pages/rate/rate",
     "pages/more/more",
-    "pages/epidemic/epidemic"
+    "pages/epidemic/epidemic",
+    "pages/joke/joke",
+    "pages/constellation/constellation",
+    "pages/historyToday/historyToday"
   ],
   "window": {
     "navigationBarTextStyle": "black",
