@@ -41,16 +41,16 @@
     </view>
     <view class="clear"></view>
   </view>
-  <!--  页面待开发部分  -->
+  <!--  轻松一刻  -->
   <view class="server-box inm">
     <!--服务  -->
     <view class="">
-      <view class="server-text fs26">开发中,敬请期待...</view>
+      <view class="server-text fs26">轻松一刻</view>
     </view>
     <!--列表  -->
     <view class="list-server">
       <!-- 循环 -->
-      <view class="listbox" wx:for="{{unserver}}" wx:key="img">
+      <view class="listbox" wx:for="{{relax}}" wx:key="img">
         <view>
           <image src="{{item.img}}" class="listimg" />
         </view>

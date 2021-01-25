@@ -20,27 +20,7 @@ Page({
       openpath: "../../pages/MobileHome/MobileHome"
     }],
     server: [],
-    unserver: [{
-        img: "../../images/kd.png",
-        openpath: "../../pages/",
-        text: "全国快递"
-      },
-      {
-        img: "../../images/gj.png",
-        openpath: "../../pages/",
-        text: "公交地铁"
-      },
-      {
-        img: "../../images/gjj.png",
-        openpath: "../../pages/",
-        text: "公积金计算"
-      },
-      {
-        img: "../../images/sl.png",
-        openpath: "../../pages/",
-        text: ""
-      },
-    ],
+    relax: [],
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -52,7 +32,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      server: common.server.slice(0, 12) // 截取数组的前十二个即 0-11
+      server: common.server.slice(0, 12), // 截取数组的前十二个即 0-11
+      relax: common.relax.slice(0, 4) // 轻松一刻的数据,这里只要前三个
     })
   },
 

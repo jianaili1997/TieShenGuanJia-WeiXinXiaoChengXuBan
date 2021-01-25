@@ -1,3 +1,4 @@
+// 功能菜单项
 const server = [{
     img: "../../images/sfz.png",
     openpath: "../../pages/IDCard/IDCard",
@@ -64,6 +65,51 @@ const server = [{
     text: "疫情"
   }
 ]
+// 待开发,以后会放到server里面去
+const unserver = [{
+    img: "../../images/kd.png",
+    openpath: "../../pages/",
+    text: "全国快递"
+  },
+  {
+    img: "../../images/gj.png",
+    openpath: "../../pages/",
+    text: "公交地铁"
+  },
+  {
+    img: "../../images/gjj.png",
+    openpath: "../../pages/",
+    text: "公积金计算"
+  },
+  {
+    img: "../../images/sl.png",
+    openpath: "../../pages/",
+    text: ""
+  },
+]
+// 轻松一刻
+const relax = [{
+    img: "../../images/joke.png",
+    openpath: "../../pages/",
+    text: "笑话大全"
+  },
+  {
+    img: "../../images/constellation.png",
+    openpath: "../../pages/",
+    text: "星座运势"
+  },
+  {
+    img: "../../images/historyToday.png",
+    openpath: "../../pages/",
+    text: "历史今天"
+  },
+  {
+    img: "../../images/sl.png",
+    openpath: "../../pages/",
+    text: ""
+  },
+]
 module.exports = {
-  server
+  server,
+  relax
 }
