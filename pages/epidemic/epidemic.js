@@ -12,7 +12,8 @@ Page({
     endCity: '', // 结束城市
     endCityId: '', // 结束城市id
     showPicker: false, // picker组件的显示与隐藏，默认不显示
-    status: 1 // 1 开始城市， 2 结束时间
+    status: 1, // 1 开始城市， 2 结束时间
+    show: false // 查询出来的详细信息 默认不显示
   },
 
   /**
@@ -213,7 +214,6 @@ Page({
           defaultIndex: 2,
         }
       ],
-      show: true // 显示
     })
   },
 
@@ -252,8 +252,12 @@ Page({
               }
             })
           } else {
+            let result = res.data.result
+            const level = that.formatRiskLevel(result.to_info.risk_level)
+            result.to_info.risk_level = level
             that.setData({
-              getdata: res.data.result
+              getdata: result,
+              show: true // 显示详细信息
             })
           }
         } else {
@@ -270,5 +274,27 @@ Page({
       }
     })
 
+  },
+  // 格式化获取到的风险等级
+  // 0-暂无 1 低风险 2 中风险 3 高风险 4 部分地区中风险 5 部分地区高风险 6部分地区中、高风险
+  formatRiskLevel(level) {
+    // 获取到的level是字符串类型的
+    switch (level) {
+      case '0':
+        return '暂无'
+      case '1':
+        return '低风险'
+      case '2':
+        return '中风险'
+      case '3':
+        return '高风险'
+      case '4':
+        return '部分地区中风险'
+      case '5':
+        return '部分地区高风险'
+      case '6':
+        return '部分地区中、高风险'
+
+    }
   }
 })

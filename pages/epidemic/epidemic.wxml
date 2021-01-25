@@ -41,6 +41,16 @@
  <view class="pg-t fs36 fc99">
       详细信息
     </view>
+    <!-- 出发地 -->
+    <view class="pglist fc99">
+     <view class="pg-l fs32">出发地：</view>
+       <view class="pg-l fs32">{{getdata.from_info.province_name}}-{{getdata.from_info.city_name}}</view>
+    </view>
+        <!-- 目的地 -->
+          <view class="pglist fc99">
+       <view class="pg-l fs32">目的地：</view>
+       <view class="pg-l fs32">{{getdata.to_info.province_name}}-{{getdata.to_info.city_name}}</view>
+    </view>
     <!-- 风险等级 -->
     <view class="pglist fc99">
       <view class="pg-l fs32">风险等级：</view>
@@ -49,32 +59,32 @@
 <!-- 新增确诊 -->
   <view class="pglist fc99">
       <view class="pg-l fs32">新增确诊: </view>
-      <view class="pg-r fs32">{{getdata.to_covid_info.today_confirm}}</view>
+      <view class="pg-r fs32">{{getdata.to_covid_info.today_confirm ? getdata.to_covid_info.today_confirm : '暂无'}}</view>
     </view>
 <!-- 累计确诊 -->
  <view class="pglist fc99">
       <view class="pg-l fs32">累计确诊: </view>
-      <view class="pg-r fs32">{{getdata.to_covid_info.total_confirm}}</view>
+      <view class="pg-r fs32">{{getdata.to_covid_info.total_confirm ? getdata.to_covid_info.total_confirm : '暂无'}}</view>
     </view>
 <!-- 治愈 -->
 <view class="pglist fc99">
       <view class="pg-l fs32">治愈: </view>
-      <view class="pg-r fs32">{{getdata.to_covid_info.total_heal}}</view>
+      <view class="pg-r fs32">{{getdata.to_covid_info.total_heal ? getdata.to_covid_info.total_heal : '暂无'}}</view>
     </view>
     <!-- 死亡 -->
 <view class="pglist fc99">
       <view class="pg-l fs32">死亡: </view>
-      <view class="pg-r fs32">{{getdata.to_covid_info.total_dead}}</view>
+      <view class="pg-r fs32">{{getdata.to_covid_info.total_dead ? getdata.to_covid_info.total_dead : '暂无'}}</view>
     </view>
     <!-- 更新时间 -->
 <view class="pglist fc99">
       <view class="pg-l fs32">更新时间: </view>
-      <view class="pg-r fs32">{{getdata.to_covid_info.updated_at}}</view>
+      <view class="pg-r fs32">{{getdata.to_covid_info.updated_at ? getdata.to_covid_info.updated_at : '暂无'}}</view>
     </view>
     <!-- 今日是否更新 -->
     <view class="pglist fc99">
-      <view class="pg-l fs32">今日是否更新: </view>
-      <view class="pg-r fs32">{{getdata.to_covid_info.is_updated}}</view>
+      <view class="pg-l fs32" style="width:30%">今日是否更新: </view>
+      <view class="pg-r fs32" style="width:70%">{{getdata.to_covid_info.is_updated  ? getdata.to_covid_info.is_updated : '暂无'}}</view>
     </view>
 </view>
 </view>
