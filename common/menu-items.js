@@ -90,17 +90,17 @@ const unserver = [{
 // 轻松一刻
 const relax = [{
     img: "../../images/joke.png",
-    openpath: "../../pages/",
+    openpath: "../../pages/joke/joke",
     text: "笑话大全"
   },
   {
     img: "../../images/constellation.png",
-    openpath: "../../pages/",
+    openpath: "../../pages/constellation/constellation",
     text: "星座运势"
   },
   {
     img: "../../images/historyToday.png",
-    openpath: "../../pages/",
+    openpath: "../../pages/historyToday/historyToday",
     text: "历史今天"
   },
   {
