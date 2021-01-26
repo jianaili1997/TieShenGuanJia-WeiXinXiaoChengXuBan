@@ -1,2 +1,58 @@
 <!--pages/constellation/constellation.wxml-->
-<text>pages/constellation/constellation.wxml</text>
+<!-- <text>pages/constellation/constellation.wxml</text> -->
+<view class="page-box">
+<!-- 下拉选择框 -->
+<van-dropdown-menu>
+  <van-dropdown-item value="{{ value }}" options="{{ constellation }}" bind:change="change"/>
+</van-dropdown-menu>
+</view>
+
+<view class="det-box">
+ <view class="pg-t fs36 fc99">
+      详细信息
+    </view>
+    <view class="pglist fc99">
+     <view class="pg-l fs32">星座名称：</view>
+       <view class="pg-l fs32">{{data.name}}</view>
+    </view>
+        <!-- 日期 -->
+          <view class="pglist fc99">
+       <view class="pg-l fs32">日期：</view>
+       <view class="pg-l fs32">{{data.date}}</view>
+    </view>
+    <!-- 综合指数 -->
+    <view class="pglist fc99">
+      <view class="pg-l fs32">综合指数：</view>
+      <view class="pg-r fs32">{{data.all}}</view>
+    </view>
+<!-- 幸运色 -->
+  <view class="pglist fc99">
+      <view class="pg-l fs32">幸运色: </view>
+      <view class="pg-r fs32">{{data.color}}</view>
+    </view>
+<!-- 健康指数 -->
+ <view class="pglist fc99">
+      <view class="pg-l fs32">健康指数: </view>
+      <view class="pg-r fs32">{{data.health}}</view>
+    </view>
+<!-- 爱情指数 -->
+<view class="pglist fc99">
+      <view class="pg-l fs32">爱情指数: </view>
+      <view class="pg-r fs32">{{data.love}}</view>
+    </view>
+    <!-- 财运指数 -->
+<view class="pglist fc99">
+      <view class="pg-l fs32">财运指数: </view>
+      <view class="pg-r fs32">{{data.money}}</view>
+    </view>
+    <!-- 幸运数字 -->
+<view class="pglist fc99">
+      <view class="pg-l fs32">幸运数字: </view>
+      <view class="pg-r fs32">{{data.number}}</view>
+    </view>
+    <!-- 速配星座 -->
+    <view class="pglist fc99">
+      <view class="pg-l fs32">速配星座: </view>
+      <view class="pg-r fs32">{{data.QFriend}}</view>
+    </view>
+</view>
