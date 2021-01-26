@@ -1,2 +1,12 @@
 <!--pages/joke/joke.wxml-->
-<text>pages/joke/joke.wxml</text>
+<!-- <text>pages/joke/joke.wxml</text> -->
+<view>
+<view class="pages-box">
+<view wx:for="{{dataList}}" wx:key="{{index}}">
+<view class="joke-item">
+  {{item.content}}
+</view>
+</view>
+</view>
+
+</view>

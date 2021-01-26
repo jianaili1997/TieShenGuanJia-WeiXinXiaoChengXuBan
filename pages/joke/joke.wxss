@@ -1,1 +1,5 @@
 /* pages/joke/joke.wxss */
+.joke-item{
+  margin: 5rpx 0 20rpx;
+  border-bottom: 1px solid #cccccc;
+}
