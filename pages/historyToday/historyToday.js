@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    date: '',
+    show: false,
+    data: [],
+    showDeatil: false
   },
 
   /**
@@ -62,5 +65,75 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  onDisplay() {
+    this.setData({
+      show: true
+    });
+  },
+  onClose() {
+    this.setData({
+      show: false
+    });
+  },
+  formatDate(date) {
+    date = new Date(date);
+    return `${date.getMonth() + 1}/${date.getDate()}`;
+  },
+  onConfirm(event) {
+    let that = this
+    const date = this.formatDate(event.detail)
+    this.setData({
+      show: false,
+      date: date,
+    });
+    // 去调用接口获取今天的大事件
+    wx.request({
+      url: `http://v.juhe.cn/todayOnhistory/queryEvent.php?key=6c2d67a905ed7f5f36881a3a33c84bda&date=${date}`,
+      data: {},
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res)
+        wx.hideLoading();
+        if (res.statusCode == 200) {
+          if (res.data.result === null) {
+            wx.showModal({
+              title: '提示',
+              content: res.data.reason,
+              success: function (res) {
+                // that.setData({
+                //   show: false // 不显示
+                // })
+              }
+            })
+          } else {
+            let data = res.data.result
+            that.setData({
+              showDeatil: true,
+              data: data
+            })
+          }
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: res.data.reason,
+            success: function (res) {
+              // that.setData({
+              //   show: false // 不显示
+              // })
+            }
+          })
+        }
+      }
+    })
+  },
+  // 当前行的点击
+  rowClick(e) {
+    let id = e.currentTarget.dataset['id']; //先获取到要传递的参数--id
+    wx.navigateTo({
+      url: `/pages/historyTodayDetail/historyTodayDetail?e_id=${id}`
+    })
   }
 })
