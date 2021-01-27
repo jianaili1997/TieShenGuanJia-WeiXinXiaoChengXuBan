@@ -21,7 +21,8 @@
     "pages/epidemic/epidemic",
     "pages/joke/joke",
     "pages/constellation/constellation",
-    "pages/historyToday/historyToday"
+    "pages/historyToday/historyToday",
+    "pages/historyTodayDetail/historyTodayDetail"
   ],
   "window": {
     "navigationBarTextStyle": "black",
