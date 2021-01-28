@@ -1,1 +1,9 @@
 /* pages/courier/courier.wxss */
+.query{
+  display: inline-block;
+  width: 45%;
+}
+.margin{
+  margin-left: 10rpx;
+  border: 1px solid #cccccc;
+}

@@ -1,2 +1,59 @@
 <!--pages/courier/courier.wxml-->
-<text>pages/courier/courier.wxml</text>
+<!-- <text>pages/courier/courier.wxml</text> -->
+<view>
+	<view class="pages-box">
+		<view>
+			<view class="query">
+				<!-- 快递公司 -->
+				<van-dropdown-menu>
+					<van-dropdown-item value="{{ value }}" options="{{ company }}" />
+				</van-dropdown-menu>
+			</view>
+			<!-- 快递单号 -->
+      <!--测试单号  777035135476092-->
+			<view class="query margin">
+				<van-field  model:value="{{ orderNo }}" placeholder="请输入快递单号" border="{{ true }}" />
+			</view>
+		</view>
+
+		<!-- 查询按钮 -->
+		<view class="btn-box">
+			<button class="btn fs32" bindtap="getMsg">
+				查 询
+			</button>
+		</view>
+
+	</view>
+	<!-- 详细信息 -->
+	<view class="det-box {{show?'':'dp-n'}}">
+		<view class="pg-t fs36 fc99">
+			详细信息
+		</view>
+		<view class="pglist fc99">
+			<view class="pg-l fs32">公司：</view>
+			<view class="pg-r fs32">{{getdata.com}}</view>
+		</view>
+		<view class="pglist fc99">
+			<view class="pg-l fs32">单号：</view>
+			<view class="pg-r fs32">{{getdata.nu}}</view>
+		</view>
+		<!--遍历开始 -->
+		<block wx:for="{{getdata.data}}" wx:key="{{index}}">
+			<!-- 时间 -->
+			<view class="pglist fc99">
+				<view class="pg-l fs32">时间：</view>
+				<view class="pg-r fs32">{{item.time}}</view>
+			</view>
+			<!-- 结果 -->
+			<view class="pglist fc99">
+				<view class="pg-l fs32">结果：</view>
+				<view class="pg-r fs32">{{item.context}}</view>
+			</view>
+		</block>
+
+
+
+
+	</view>
+
+</view>
