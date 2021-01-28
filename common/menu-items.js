@@ -1,3 +1,25 @@
+// 待开发,以后会放到server里面去
+const unserver = [{
+    img: "../../images/kd.png",
+    openpath: "../../pages/courier/courier",
+    text: "全国快递"
+  },
+  {
+    img: "../../images/gj.png",
+    openpath: "../../pages/",
+    text: "公交地铁"
+  },
+  {
+    img: "../../images/gjj.png",
+    openpath: "../../pages/",
+    text: "公积金计算"
+  },
+  // {
+  //   img: "../../images/sl.png",
+  //   openpath: "../../pages/",
+  //   text: ""
+  // },
+]
 // 功能菜单项
 const server = [{
     img: "../../images/epidemic.png",
@@ -50,37 +72,11 @@ const server = [{
     text: "程序员黄历"
   },
   {
-    img: "../../images/2048.png",
-    openpath: "../../pages/2048/2048",
-    text: "2048"
-  },
-  {
     img: "../../images/rate.png",
     openpath: "../../pages/rate/rate",
     text: "汇率"
   },
-]
-// 待开发,以后会放到server里面去
-const unserver = [{
-    img: "../../images/kd.png",
-    openpath: "../../pages/",
-    text: "全国快递"
-  },
-  {
-    img: "../../images/gj.png",
-    openpath: "../../pages/",
-    text: "公交地铁"
-  },
-  {
-    img: "../../images/gjj.png",
-    openpath: "../../pages/",
-    text: "公积金计算"
-  },
-  {
-    img: "../../images/sl.png",
-    openpath: "../../pages/",
-    text: ""
-  },
+  ...unserver
 ]
 // 轻松一刻
 const relax = [{
@@ -108,7 +104,11 @@ const relax = [{
     openpath: "../../pages/game/game",
     text: "摇骰子"
   },
-
+  {
+    img: "../../images/2048.png",
+    openpath: "../../pages/2048/2048",
+    text: "2048"
+  },
 ]
 module.exports = {
   server,

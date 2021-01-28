@@ -23,7 +23,8 @@
     "pages/constellation/constellation",
     "pages/historyToday/historyToday",
     "pages/historyTodayDetail/historyTodayDetail",
-    "pages/relaxMore/relaxMore"
+    "pages/relaxMore/relaxMore",
+    "pages/courier/courier"
   ],
   "window": {
     "navigationBarTextStyle": "black",
