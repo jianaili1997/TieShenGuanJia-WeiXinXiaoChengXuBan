@@ -33,7 +33,7 @@ Page({
   onLoad: function (options) {
     this.setData({
       server: common.server.slice(0, 12), // 截取数组的前十二个即 0-11
-      relax: common.relax.slice(0, 4) // 轻松一刻的数据,这里只要前三个
+      relax: common.relax.slice(0, 3) // 轻松一刻的数据,这里只要前三个
     })
   },
 
