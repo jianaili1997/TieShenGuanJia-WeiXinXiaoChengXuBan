@@ -1,2 +1,21 @@
 <!--pages/relaxMore/relaxMore.wxml-->
-<text>pages/relaxMore/relaxMore.wxml</text>
+<!-- <text>pages/relaxMore/relaxMore.wxml</text> -->
+<view>
+<view class="pages-box">
+ <view class="list-server">
+      <!-- 循环 -->
+      <view class="listbox" wx:for="{{relax}}" wx:key="img">
+      <!-- 默认数组的当前项的下标变量名默认为 index，数组当前项的变量名默认为 item -->
+        <navigator url="{{item.openpath}}" hover-class="none" open-type="navigate">
+          <view>
+            <image src="{{item.img}}" class="listimg" />
+          </view>
+          <view class="fs28">
+            {{item.text}}
+          </view>
+        </navigator>
+      </view>
+    </view>
+
+</view>
+</view>
