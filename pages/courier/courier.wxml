@@ -6,7 +6,7 @@
 			<view class="query">
 				<!-- 快递公司 -->
 				<van-dropdown-menu>
-					<van-dropdown-item value="{{ value }}" options="{{ company }}" />
+					<van-dropdown-item value="{{ value }}" options="{{ company }}" bind:change="change"/>
 				</van-dropdown-menu>
 			</view>
 			<!-- 快递单号 -->

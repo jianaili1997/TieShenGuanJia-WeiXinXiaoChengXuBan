@@ -109,6 +109,17 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {},
+
+  /**
+   * 下拉框值发生改变时
+   */
+  change({
+    detail // 解构里面的detail
+  }) {
+    this.setData({
+      value: detail
+    })
+  },
   // 获取快递信息
   getMsg() {
     const that = this
