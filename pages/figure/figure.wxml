@@ -7,13 +7,13 @@
     </view>
     <!--  搜索框  -->
     <view class="inp-box">
-      <input class="inp" bindinput="height" placeholder="身高" placeholder-style="font-size:30rpx" />
+      <input class="inp" bindinput="height" placeholder="身高(cm)" placeholder-style="font-size:30rpx" />
       <view class="inpimg">
         <image src="../../images/height.png" class="pagesimg" />
       </view>
     </view>
     <view class="inp-box">
-      <input class="inp" bindinput="weight" placeholder="体重" placeholder-style="font-size:30rpx" />
+      <input class="inp" bindinput="weight" placeholder="体重(kg)" placeholder-style="font-size:30rpx" />
       <view class="inpimg">
         <image src="../../images/weight.png" class="pagesimg" />
       </view>
