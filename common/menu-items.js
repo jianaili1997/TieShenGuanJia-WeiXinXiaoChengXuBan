@@ -50,11 +50,6 @@ const server = [{
     text: "程序员黄历"
   },
   {
-    img: "../../images/gz.png",
-    openpath: "../../pages/game/game",
-    text: "摇骰子"
-  },
-  {
     img: "../../images/2048.png",
     openpath: "../../pages/2048/2048",
     text: "2048"
@@ -103,11 +98,17 @@ const relax = [{
     openpath: "../../pages/historyToday/historyToday",
     text: "历史今天"
   },
+  // {
+  //   img: "../../images/sl.png",
+  //   openpath: "../../pages/",
+  //   text: ""
+  // },
   {
-    img: "../../images/sl.png",
-    openpath: "../../pages/",
-    text: ""
+    img: "../../images/gz.png",
+    openpath: "../../pages/game/game",
+    text: "摇骰子"
   },
+
 ]
 module.exports = {
   server,
