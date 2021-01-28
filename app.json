@@ -22,7 +22,8 @@
     "pages/joke/joke",
     "pages/constellation/constellation",
     "pages/historyToday/historyToday",
-    "pages/historyTodayDetail/historyTodayDetail"
+    "pages/historyTodayDetail/historyTodayDetail",
+    "pages/relaxMore/relaxMore"
   ],
   "window": {
     "navigationBarTextStyle": "black",
