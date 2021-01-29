@@ -2,5 +2,10 @@
   "usingComponents": {
     "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
     "van-dropdown-item": "@vant/weapp/dropdown-item/index"
-  }
+  },
+  "navigationBarBackgroundColor": "#009be0",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "星座运势",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
 }

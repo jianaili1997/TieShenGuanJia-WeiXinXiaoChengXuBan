@@ -2,5 +2,10 @@
   "usingComponents": {
     "van-cell": "@vant/weapp/cell/index",
     "van-calendar": "@vant/weapp/calendar/index"
-  }
+  },
+  "navigationBarBackgroundColor": "#009be0",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "历史今天",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
 }
