@@ -1,1 +1,8 @@
-/* pages/historyToday/historyToday.wxss */
+.pg-l{
+  width: 40%;
+  display: inline-block;
+}
+.pg-r{
+  width: 60%;
+  display: inline-block;
+}

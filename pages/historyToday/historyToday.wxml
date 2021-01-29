@@ -1,25 +1,17 @@
-<!--pages/historyToday/historyToday.wxml-->
-<!-- <text>pages/historyToday/historyToday.wxml</text> -->
-
 <view class="page-box">
 <van-cell title="选择日期" value="{{ date }}" bind:click="onDisplay" />
 <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
-
 <!-- 详细信息 -->
 <view class="det-box {{showDeatil ?'':'dp-n'}}">
-   <view class="pg-t fs36 fc99">
+   <!-- <view class="pg-t fs36 fc99">
       详细信息
-    </view>
+    </view> -->
   <view  class="pglist fc99">
    <block wx:for="{{data}}" wx:key="{{index}}">
-   <!-- <navigator url="/pages/historyTodayDetail/historyTodayDetail?e_id={{item.e_id}}"> -->
     <van-cell style="border-bottom:1px solid #ccc" bind:click="rowClick" data-id="{{item.e_id}}">
-     <view class="pg-l fs32">日期：</view>
        <view class="pg-l fs32">{{item.date}}</view>
-        <view class="pg-l fs32">事件：</view>
-       <view class="pg-l fs32">{{item.title}}</view>
+       <view  class="pg-r fs32">{{item.title}}</view>
        </van-cell>
-       <!-- </navigator > -->
    </block>
 </view>
 </view>
