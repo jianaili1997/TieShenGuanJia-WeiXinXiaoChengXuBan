@@ -1,15 +1,9 @@
-<!--pages/historyTodayDetail/historyTodayDetail.wxml-->
-<!-- <text>pages/historyTodayDetail/historyTodayDetail.wxml</text> -->
 <view class="page-box">
 	<view class="det-box">
-		<!-- <view class="pg-t fs36 fc99">
-			详细信息
-		</view> -->
-		<view class="pglist fc99"></view>
 		<block wx:for="{{data}}" wx:key="{{idx}}" wx:for-index="idx" wx:for-item="itemName">
 			<van-cell style="border-bottom:1px solid #ccc">
-				<view class="pg-l fs32">标题：</view>
-				<view class="pg-r fs32">{{itemName.title}}</view>
+				<view class="title fs32">{{itemName.title}}</view>
+				<view class="pglist fc99"></view>
 				<!-- 展示图片 -->
 				<block wx:for="{{itemName.picUrl}}" wx:key="*this">
 					<image style="width: 200px; height: 200px; background-color: #eeeeee;" mode="{{item.mode}}" src="{{item.url}}">
