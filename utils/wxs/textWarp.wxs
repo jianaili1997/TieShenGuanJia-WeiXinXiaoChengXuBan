@@ -1,0 +1,11 @@
+    var format={
+      formatToWarp:function(content){
+        // 遇到句号即换行显示
+        content=content.replace('/。/g','。\n')
+        return content
+      }
+    }
+    // 暴露给外部接口
+    module.exports={
+      formatToWarp:format.formatToWarp
+    }
