@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index"
+  },
   "navigationBarBackgroundColor": "#009be0",
   "navigationBarTextStyle": "white",
   "navigationBarTitleText": "笑话大全",

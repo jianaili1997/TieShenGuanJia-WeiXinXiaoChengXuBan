@@ -139,7 +139,9 @@ Page({
     let time = that.timest()
     wx.request({
       // url: 'http://v.juhe.cn/joke/content/list.php?key=92a4abac6696f0fa1d0b26696ad81f65&page=' + that.data.page + '&pagesize=' + that.data.pagesize + '&sort=asc&time=' + time,
-      url: `http://v.juhe.cn/joke/content/list.php?key=92a4abac6696f0fa1d0b26696ad81f65&page= ${that.data.page}&pagesize=${that.data.pagesize}&sort=asc&time=${time}`,
+      // url: `http://v.juhe.cn/joke/content/list.php?key=92a4abac6696f0fa1d0b26696ad81f65&page= ${that.data.page}&pagesize=${that.data.pagesize}&sort=asc&time=${time}`, // 按更新时间查询笑话
+      url: `http://v.juhe.cn/joke/content/text.php?key=92a4abac6696f0fa1d0b26696ad81f65&page= ${that.data.page}&pagesize=${that.data.pagesize}`, // 最新笑话
+      // url:`http://v.juhe.cn/joke/randJoke.php?key=92a4abac6696f0fa1d0b26696ad81f65`, // 随机获取笑话
       data: {},
       header: {
         'content-type': 'application/json' // 默认值
