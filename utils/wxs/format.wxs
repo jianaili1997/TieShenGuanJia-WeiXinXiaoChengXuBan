@@ -5,9 +5,17 @@ var format={
 formatToTitle:function(title){
   title=title.substring(0,8)+'...' // 截取前8个字符,其余使用省略号代替
    return title
+},
+// 原获取日期格式 20210225 格式化之后 2021-02-25
+formatToDate:function(date){
+// 获取到的date是number类型的，先转换成字符串类型的
+// date=date.toString() // 提示 Cannot read property 'toString' of undefined
+date = date +"" // 所以使用这一种方式进行转换
+return date.slice(0,4)+'-'+ date.slice(4,6)+'-'+date.slice(6)
 }
 }
 // 导出对外暴露的属性
 module.exports={
-  formatToTitle: format.formatToTitle
+  formatToTitle: format.formatToTitle,
+  formatToDate:format.formatToDate
 }

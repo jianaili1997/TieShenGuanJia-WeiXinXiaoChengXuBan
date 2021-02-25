@@ -1,5 +1,5 @@
 <!--pages/constellation/constellation.wxml-->
-<!-- <text>pages/constellation/constellation.wxml</text> -->
+<wxs module="format" src="../../utils/wxs/format.wxs"></wxs>
 <view class="page-box">
 <!-- 下拉选择框 -->
 <van-dropdown-menu>
@@ -18,7 +18,7 @@
         <!-- 日期 -->
           <view class="pglist fc99">
        <view class="pg-l fs32">日期：</view>
-       <view class="pg-l fs32">{{data.date}}</view>
+       <view class="pg-l fs32">{{format.formatToDate(data.date)}}</view>
     </view>
     <!-- 综合指数 -->
     <view class="pglist fc99">
