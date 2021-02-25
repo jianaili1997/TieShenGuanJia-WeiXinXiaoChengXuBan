@@ -15,7 +15,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let date = new Date()
+    const that = this
+    date = that.formatDate(date) // 格式化日期
+    that.getData(date) // 默认获取当天的 月/日 的数据
   },
 
   /**
@@ -83,6 +86,11 @@ Page({
   onConfirm(event) {
     let that = this
     const date = this.formatDate(event.detail)
+    that.getData(date)
+  },
+  // 获取数据
+  getData(date) {
+    const that = this
     this.setData({
       show: false,
       date: date,
@@ -135,5 +143,5 @@ Page({
     wx.navigateTo({
       url: `/pages/historyTodayDetail/historyTodayDetail?e_id=${id}`
     })
-  }
+  },
 })

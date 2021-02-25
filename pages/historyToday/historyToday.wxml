@@ -1,3 +1,4 @@
+<wxs module="format" src="../../utils/wxs/format.wxs"></wxs>
 <view class="page-box">
 <van-cell title="选择日期" value="{{ date }}" bind:click="onDisplay" />
 <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
@@ -10,7 +11,8 @@
    <block wx:for="{{data}}" wx:key="{{index}}">
     <van-cell style="border-bottom:1px solid #ccc" bind:click="rowClick" data-id="{{item.e_id}}">
        <view class="pg-l fs32">{{item.date}}</view>
-       <view  class="pg-r fs32">{{item.title}}</view>
+       <!-- 只保留前8个字符 -->
+       <view  class="pg-r fs32" data-title="{{item.title}}">{{item.title.length > 8 ? format.formatToTitle(item.title) : item.title}}</view>
        </van-cell>
    </block>
 </view>
