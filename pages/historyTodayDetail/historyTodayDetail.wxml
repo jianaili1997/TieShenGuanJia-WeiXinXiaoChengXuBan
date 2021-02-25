@@ -1,3 +1,4 @@
+<wxs module="textWarp" src="../../utils/wxs/textWarp.wxs"></wxs>
 <view class="page-box">
 	<view class="det-box">
 		<block wx:for="{{data}}" wx:key="{{idx}}" wx:for-index="idx" wx:for-item="itemName">
@@ -6,11 +7,11 @@
 				<view class="pglist fc99"></view>
 				<!-- 展示图片 -->
 				<block wx:for="{{itemName.picUrl}}" wx:key="*this">
-					<image style="width: 200px; height: 200px; background-color: #eeeeee;" mode="{{item.mode}}" src="{{item.url}}">
+					<image class="image" mode="{{item.mode}}" src="{{item.url}}">
 					</image>
 				</block>
 				<!-- 展示在最后 -->
-				<view class="fs32">{{itemName.content}}</view>
+				<text class="fs32">{{textWarp.formatToWarp(itemName.content)}}</text>
 			</van-cell>
 		</block>
 
