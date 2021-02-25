@@ -1,0 +1,13 @@
+/**
+ * 放置wxml中需要格式化内容的方法
+ */
+var format={
+formatToTitle:function(title){
+  title=title.substring(0,8)+'...' // 截取前8个字符,其余使用省略号代替
+   return title
+}
+}
+// 导出对外暴露的属性
+module.exports={
+  formatToTitle: format.formatToTitle
+}
