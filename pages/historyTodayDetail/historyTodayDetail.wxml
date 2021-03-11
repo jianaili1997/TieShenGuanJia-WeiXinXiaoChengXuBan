@@ -1,6 +1,6 @@
 <wxs module="textWarp" src="../../utils/wxs/textWarp.wxs"></wxs>
 <view class="page-box">
-	<view class="det-box">
+	<view class="det-box bottom">
 		<block wx:for="{{data}}" wx:key="{{idx}}" wx:for-index="idx" wx:for-item="itemName">
 			<van-cell style="border-bottom:1px solid #ccc">
 				<view class="title fs32">{{itemName.title}}</view>
@@ -14,7 +14,6 @@
 				<text class="fs32">{{textWarp.formatToWarp(itemName.content)}}</text>
 			</van-cell>
 		</block>
-
 	</view>
 
 </view>
