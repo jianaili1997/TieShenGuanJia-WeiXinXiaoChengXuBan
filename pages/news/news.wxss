@@ -1,0 +1,31 @@
+/* 总的 */
+.warpper{
+  margin: 0 auto;
+}
+.fix-parent{
+height:100rpx ;
+}
+/* tab固定在最上方 */
+.fix{
+position: fixed;
+top: 0;
+	left: 0;
+z-index: 9999;
+}
+/* 每条新闻 */
+.row{
+display: block;
+}
+.title{
+  font-weight: 600;
+}
+/* 标题下面的小字 */
+.small-text{
+  display: inline-block;
+padding-top: 20rpx;
+font-size: 24rpx;
+}
+/* 新闻来源距离发布时间的距离 */
+.right{
+  margin-right: 20rpx;
+}

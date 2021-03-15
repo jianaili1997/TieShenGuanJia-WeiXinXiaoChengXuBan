@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/news/news",
     "pages/index/index",
     "pages/about/about",
     "pages/weather/weather",
@@ -25,6 +26,7 @@
     "pages/historyTodayDetail/historyTodayDetail",
     "pages/relaxMore/relaxMore",
     "pages/courier/courier"
+   
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -49,6 +51,12 @@
         "iconPath": "images/tianqi1.png",
         "selectedIconPath": "images/tianqi.png",
         "text": "天气"
+      },
+      {
+        "pagePath": "pages/news/news",
+        "iconPath": "images/news1.png",
+        "selectedIconPath": "images/news.png",
+        "text": "新闻"
       },
       {
         "pagePath": "pages/about/about",
