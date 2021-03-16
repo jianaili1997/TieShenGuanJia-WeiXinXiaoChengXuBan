@@ -62,14 +62,15 @@ Page({
     active: 0, // 默认选择第一个
     page: 1, // 第一页
     page_size: 10, // 每页显示10条数据
-    dataList:[] // 获取到的数据列表
+    dataList:[], // 获取到的数据列表
+    type:'top', // 新闻类型,默认是推荐
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-this.getDataList('top') // 默认获取推荐列表
+  this.getDataList(this.data.type) // 默认获取推荐列表
   },
 
   /**
@@ -127,6 +128,11 @@ this.getDataList('top') // 默认获取推荐列表
   onChange(event) {
     console.log(event)
     const type=event.detail.name;
+    this.setData({
+      dataList:[], // 清空dataList里面的数据
+      type:type, // 赋值新闻类型
+      page:1 // 重新赋值为第一页
+    })
     this.getDataList(type) //获取切换的新闻列表
   },
 
@@ -164,7 +170,7 @@ wx.request({
       } else {
         let data = res.data.result.data
         that.setData({
-          dataList: data
+          dataList: that.data.dataList.concat(data)
         })
       }
     } else {
@@ -180,5 +186,19 @@ wx.request({
     }
   }
 })
-  }
+  },
+/**
+ * 滚动到最底部进行触发
+ * @param {*} e 
+ */
+  lower(e){
+    if(this.data.page === 50){ // 最大是50页
+     return
+    }
+    this.setData({
+      page:++this.data.page// page页+1
+    })
+this.getDataList(this.data.type) // 获取下一页列表
+console.log('滚动到最底部进行触发')
+  },
 })

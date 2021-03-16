@@ -5,5 +5,10 @@
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
     "van-image": "@vant/weapp/image/index"
-  }
+  },
+  "navigationBarBackgroundColor": "#009be0",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "新闻中心",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
 }

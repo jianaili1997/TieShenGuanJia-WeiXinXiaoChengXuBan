@@ -1,34 +1,31 @@
 <view class="warpper">
-<!-- tab页-->
-<view class="fix-parent">
-<!-- 给样式fix加父级样式，否则会遮盖住下面第一条新闻的内容 -->
-<van-tabs active="{{ active }}" bind:change="onChange" class="fix">
-<van-tab wx:for="{{newsList}}" title="{{item.value}}" name="{{item.key}}"></van-tab>
-</van-tabs>
-</view>
-<!-- 每条新闻 -->
-<van-row wx:for="{{dataList}}">
-<!-- -----------------------------------------------左侧文字 -->
-  <van-col span="15" offset="1">
-  <!-- 标题 -->
-  <view>{{item.title}}</view>
- <view class="small-text">
- <!-- 新闻来源 -->
- <span class="right">{{item.author_name}}</span>
- <!-- 新闻时间 -->
- <span>{{item.date}}</span>
- </view>
-  </van-col>
-  <!---------------------------------------------- 右侧图片 -->
-  <van-col span="7">
-  <van-image
-  width="100%"
-  height="100px"
-  fit="cover"
-  src="{{item.thumbnail_pic_s}}"
-/>
-  </van-col>
-</van-row>
+	<!-- tab页-->
+	<view class="fix-parent">
+		<!-- 给样式fix加父级样式，否则会遮盖住下面第一条新闻的内容 -->
+		<van-tabs active="{{ active }}" bind:change="onChange" class="fix">
+			<van-tab wx:for="{{newsList}}" title="{{item.value}}" name="{{item.key}}"></van-tab>
+		</van-tabs>
+	</view>
+<scroll-view scroll-y="true" bindscrolltolower="lower"  style="height:90vh">
+	<!-- 每条新闻 -->
+	<van-row wx:for="{{dataList}}">
+		<!-- -----------------------------------------------左侧文字 -->
+		<van-col span="15" offset="1">
+			<!-- 标题 -->
+			<view>{{item.title}}</view>
+			<view class="small-text">
+				<!-- 新闻来源 -->
+				<span class="right">{{item.author_name}}</span>
+				<!-- 新闻时间 -->
+				<span>{{item.date}}</span>
+			</view>
+		</van-col>
+		<!---------------------------------------------- 右侧图片 -->
+		<van-col span="7">
+			<van-image width="100%" height="100px" fit="cover" src="{{item.thumbnail_pic_s}}" />
+		</van-col>
+	</van-row>
+
+</scroll-view>
 
 </view>
-  
