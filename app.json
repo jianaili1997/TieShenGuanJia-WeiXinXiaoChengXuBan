@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/news/news",
     "pages/index/index",
     "pages/about/about",
     "pages/weather/weather",
@@ -25,7 +24,8 @@
     "pages/historyToday/historyToday",
     "pages/historyTodayDetail/historyTodayDetail",
     "pages/relaxMore/relaxMore",
-    "pages/courier/courier"
+    "pages/courier/courier",
+    "pages/news/news"
    
   ],
   "window": {
