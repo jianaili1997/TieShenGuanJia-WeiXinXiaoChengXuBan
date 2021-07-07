@@ -4,7 +4,7 @@
   <import src="../../model/model.wxml" />
   <template is="areaData" data="{{...item}}" />
   <view class="wt-box">
-    <view class="fs28 fcff wt-d" bindtap="translate">{{my}}</view>
+    <view class="fs28 fcff wt-d" bindtap="translate">{{currentarea}}</view>
     <image src="../../images/wz.png" class="wz-img" />
   </view>
   <!-- 页面显示天气部分  -->

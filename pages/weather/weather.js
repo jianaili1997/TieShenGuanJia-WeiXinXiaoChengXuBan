@@ -13,7 +13,7 @@ Page({
     item: {
       show: show
     },
-    my: "未知", // 当前所在的区域名称 --- 后期改为 currentarea
+    currentarea: "未知", // 当前所在的区域名称 --- 后期改为 currentarea
     liveweather: { // 湿度 降水量 风向 风力...
 
     },
@@ -41,9 +41,9 @@ Page({
           },
           success: function (res) {
             console.log(JSON.stringify(res))
-            var my = res.data.HeWeather6[0].basic.admin_area + " " + res.data.HeWeather6[0].basic.parent_city + " " + res.data.HeWeather6[0].basic.location
+            var currentarea = res.data.HeWeather6[0].basic.admin_area + " " + res.data.HeWeather6[0].basic.parent_city + " " + res.data.HeWeather6[0].basic.location
             that.setData({
-              my: my,
+              currentarea: currentarea,
               liveweather: res.data.HeWeather6[0].now // 主要用来获取 湿度 降水量 风向
             })
             wx.request({ // 获取未来三天的天气情况
@@ -113,11 +113,11 @@ Page({
       },
       success: function (res) {
         console.log(JSON.stringify(res))
-        var my = res.data.HeWeather6[0].basic.admin_area + " " + res.data.HeWeather6[0].basic.parent_city + " " + res.data.HeWeather6[0].basic.location
-        console.log('输出my', my)
+        var currentarea = res.data.HeWeather6[0].basic.admin_area + " " + res.data.HeWeather6[0].basic.parent_city + " " + res.data.HeWeather6[0].basic.location
+        console.log('输出currentarea', currentarea)
         console.log('输出liveweather', res.data.HeWeather6[0].now)
         that.setData({
-          my: my, // 省-市-区
+          currentarea: currentarea, // 省-市-区
           liveweather: res.data.HeWeather6[0].now // 天气相关
         })
         wx.request({
