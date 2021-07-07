@@ -4,7 +4,8 @@
     "van-col": "@vant/weapp/col/index",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
-    "van-image": "@vant/weapp/image/index"
+    "van-image": "@vant/weapp/image/index",
+    "van-cell": "@vant/weapp/cell/index"
   },
   "navigationBarBackgroundColor": "#009be0",
   "navigationBarTextStyle": "white",

@@ -7,10 +7,13 @@
 		</van-tabs>
 	</view>
 <scroll-view scroll-y="true" bindscrolltolower="lower"  style="height:90vh">
-	<!-- 每条新闻 -->
-	<van-row wx:for="{{dataList}}">
+	
+<block wx:for="{{dataList}}" wx:key="{{index}}">
+<!-- 每条新闻 -->
+	<van-row>
 		<!-- -----------------------------------------------左侧文字 -->
 		<van-col span="15" offset="1">
+		<van-cell bind:click="rowClick" data-id="{{item.uniquekey}}">
 			<!-- 标题 -->
 			<view>{{item.title}}</view>
 			<view class="small-text">
@@ -19,12 +22,15 @@
 				<!-- 新闻时间 -->
 				<span>{{item.date}}</span>
 			</view>
+		</van-cell>
 		</van-col>
 		<!---------------------------------------------- 右侧图片 -->
 		<van-col span="7">
-			<van-image width="100%" height="100px" fit="cover" src="{{item.thumbnail_pic_s}}" />
+			<van-image width="100%" height="100px" fit="cover" src="{{item.thumbnail_pic_s}}" bind:click="rowClick" data-id="{{item.uniquekey}}"/>
 		</van-col>
 	</van-row>
+
+</block>
 
 </scroll-view>
 

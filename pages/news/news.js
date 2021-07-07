@@ -62,15 +62,15 @@ Page({
     active: 0, // 默认选择第一个
     page: 1, // 第一页
     page_size: 10, // 每页显示10条数据
-    dataList:[], // 获取到的数据列表
-    type:'top', // 新闻类型,默认是推荐
+    dataList: [], // 获取到的数据列表
+    type: 'top', // 新闻类型,默认是推荐
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  this.getDataList(this.data.type) // 默认获取推荐列表
+    this.getDataList(this.data.type) // 默认获取推荐列表
   },
 
   /**
@@ -127,11 +127,11 @@ Page({
    */
   onChange(event) {
     console.log(event)
-    const type=event.detail.name;
+    const type = event.detail.name;
     this.setData({
-      dataList:[], // 清空dataList里面的数据
-      type:type, // 赋值新闻类型
-      page:1 // 重新赋值为第一页
+      dataList: [], // 清空dataList里面的数据
+      type: type, // 赋值新闻类型
+      page: 1 // 重新赋值为第一页
     })
     this.getDataList(type) //获取切换的新闻列表
   },
@@ -142,63 +142,74 @@ Page({
    */
   getDataList(type) {
     let that = this
-wx.showLoading({
-  title: '正在加载中。。',
-})
+    wx.showLoading({
+      title: '正在加载中。。',
+    })
     const key = '797841ef1c1b82296576f0519142d714'
-wx.request({
-  url:`http://v.juhe.cn/toutiao/index?type=${type}&key=${key}&page=${that.data.page}&page_size=${that.data.page_size}`,
-  data: {},
-  header: {
-    'content-type': 'application/json' // 默认值
-  },
-  success: function (res) {
-    console.log(res)
-    wx.hideLoading();
-    if (res.statusCode == 200) {
-      if (res.data.result === null) {
-        wx.showModal({
-          title: '提示',
-          // content: "暂无数据",
-          content: res.data.reason,
-          success: function (res) {
-            // that.setData({
-            //   show: false // 不显示
-            // })
+    wx.request({
+      url: `http://v.juhe.cn/toutiao/index?type=${type}&key=${key}&page=${that.data.page}&page_size=${that.data.page_size}`,
+      data: {},
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res)
+        wx.hideLoading();
+        if (res.statusCode == 200) {
+          if (res.data.result === null) {
+            wx.showModal({
+              title: '提示',
+              // content: "暂无数据",
+              content: res.data.reason,
+              success: function (res) {
+                // that.setData({
+                //   show: false // 不显示
+                // })
+              }
+            })
+          } else {
+            let data = res.data.result.data
+            that.setData({
+              dataList: that.data.dataList.concat(data)
+            })
           }
-        })
-      } else {
-        let data = res.data.result.data
-        that.setData({
-          dataList: that.data.dataList.concat(data)
-        })
-      }
-    } else {
-      wx.showModal({
-        title: '提示',
-        content: res.data.reason,
-        success: function (res) {
-          that.setData({
-            show: false // 不显示
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: res.data.reason,
+            success: function (res) {
+              that.setData({
+                show: false // 不显示
+              })
+            }
           })
         }
-      })
-    }
-  }
-})
+      }
+    })
   },
-/**
- * 滚动到最底部进行触发
- * @param {*} e 
- */
-  lower(e){
-    if(this.data.page === 50){ // 最大是50页
-     return
+  /**
+   * 滚动到最底部进行触发
+   * @param {*} e 
+   */
+  lower(e) {
+    if (this.data.page === 50) { // 最大是50页
+      return
     }
     this.setData({
-      page:++this.data.page// page页+1
+      page: ++this.data.page // page页+1
     })
-this.getDataList(this.data.type) // 获取下一页列表
-console.log('滚动到最底部进行触发')
+    this.getDataList(this.data.type) // 获取下一页列表
+    console.log('滚动到最底部进行触发')
   },
+
+  /**
+   * 点击当前行的时候触发
+   */
+  rowClick(e) {
+    const uniquekey = e.currentTarget.dataset['id']; //先获取到要传递的参数--id
+    wx.navigateTo({
+      url: `/pages/newsDetail/newsDetail?e_id=${uniquekey}`
+    })
+  }
+
 })
