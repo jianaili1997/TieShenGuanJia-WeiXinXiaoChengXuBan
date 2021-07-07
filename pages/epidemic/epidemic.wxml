@@ -12,7 +12,7 @@
    label="开始城市"
     value="{{ startCity }}"
     placeholder="请选择开始城市"
-    border="{{ false }}"
+    border="{{ true }}"
     bind:focus="onFocus"
     bind:blur="onBlur"
     data-status="1"
@@ -30,7 +30,14 @@
     data-status="2"
   />
 </van-cell-group>
-<van-button plain hairline type="info" bind:click="query">查 询</van-button>
+
+  <!--  提交按钮  -->
+    <view class="btn-box">
+      <button class="btn fs32" bindtap="query">
+        查 询
+      </button>
+    </view>
+
 </view>
   <!-- 组件-->  
   <van-picker value-key="name" class="{{showPicker ? 'show' : 'hide'}}"  columns="{{ columns }}" bind:change="onChange" bind:confirm="onConfirm" show-toolbar bind:cancel="onCancel"/>
