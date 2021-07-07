@@ -1,6 +1,6 @@
 // pages/weather/weather.js
 
-var model = require('../../model/model.js')
+var model = require('../../model/model.js') // 引入js文件
 
 var show = false;
 var item = {};
@@ -13,19 +13,17 @@ Page({
     item: {
       show: show
     },
-    my: "未知",
-    liveweather: {
-      
+    my: "未知", // 当前所在的区域名称 --- 后期改为 currentarea
+    liveweather: { // 湿度 降水量 风向 风力...
+
     },
-    three: [
-      
-    ]
+    three: [] // 未来三天的天气状况
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (options) { // 刚一开始打开这个界面进行加载，默认获取当前所在地的天气
     var that = this;
     wx.showLoading({
       title: '加载中',
@@ -35,10 +33,9 @@ Page({
       success: function (res) {
         var latitude = res.latitude;
         var longitude = res.longitude;
-        wx.request({
+        wx.request({ // 主要用来获取 当前天气的一些参数信息： 湿度 降水量 风向...
           url: 'https://free-api.heweather.com/s6/weather/now?key=9aab750e479648829ea03e5646a3bc36&location=' + longitude + ',' + latitude,
-          data: {
-          },
+          data: {},
           header: {
             'content-type': 'application/json' // 默认值
           },
@@ -47,20 +44,18 @@ Page({
             var my = res.data.HeWeather6[0].basic.admin_area + " " + res.data.HeWeather6[0].basic.parent_city + " " + res.data.HeWeather6[0].basic.location
             that.setData({
               my: my,
-              liveweather: res.data.HeWeather6[0].now
+              liveweather: res.data.HeWeather6[0].now // 主要用来获取 湿度 降水量 风向
             })
-            wx.request({
+            wx.request({ // 获取未来三天的天气情况
               url: 'https://free-api.heweather.com/s6/weather/forecast?key=9aab750e479648829ea03e5646a3bc36&location=' + longitude + ',' + latitude,
-              data: {
-              },
+              data: {},
               header: {
                 'content-type': 'application/json' // 默认值
               },
               success: function (res1) {
                 wx.hideLoading();
-                console.log(JSON.stringify(res))
                 that.setData({
-                  three: res1.data.HeWeather6[0].daily_forecast
+                  three: res1.data.HeWeather6[0].daily_forecast // 拿到未来三天的天气数据
                 })
               }
             })
@@ -76,48 +71,58 @@ Page({
   //生命周期函数--监听页面初次渲染完成
   onReady: function (e) {
     var that = this;
-    //请求数据
+    //请求数据- 0 省份数据
     model.updateAreaData(that, 0, e);
   },
   //点击选择城市按钮显示picker-view
   translate: function (e) {
-    model.animationEvents(this, 0, true, 400);
+    model.animationEvents(this, 0, true, 400); // 显示选择城市的下拉框
   },
   //隐藏picker-view
   hiddenFloatView: function (e) {
-    model.animationEvents(this, 200, false, 400);
-    console.log(this.data.item)
-    var length = this.data.item.value[2];
-    var lengthc = this.data.item.value[1];
+    model.animationEvents(this, 200, false, 400); // 隐藏城市下拉框
+    let id = e.currentTarget.dataset['id']; // 获取自定义的参数 
+    if (id === '555') { // 代表取消，则不继续向下执行
+      return
+    }
+    console.log('this.data.item', this.data.item)
+    var length = this.data.item.value[2]; // 拿到区
+    var lengthc = this.data.item.value[1]; // 拿到市
     var countyCity = this.data.item.countys[length].name;
-    console.log()
-    if (countyCity == "市辖区"){
-      console.log("============")
+    if (countyCity == "市辖区") { // 如果是 市辖区
       countyCity = this.data.item.citys[lengthc].name;
     }
-    console.log(countyCity);
+    // 判断是否为 台湾 香港 澳门 需要进行特别处理
+    const value = this.data.item.value[0] // 拿到数组里面的第一个值
+    if (value === 32 || value === 33) {
+      if (value === 32) {
+        countyCity = '香港'
+      } else {
+        countyCity = '澳门'
+      }
+    }
     wx.showLoading({
       title: '加载中',
     });
     var that = this;
-    wx.request({
+    wx.request({ // 获取
       url: 'https://free-api.heweather.com/s6/weather/now?key=9aab750e479648829ea03e5646a3bc36&location=' + countyCity,
-      data: {
-      },
+      data: {},
       header: {
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
         console.log(JSON.stringify(res))
         var my = res.data.HeWeather6[0].basic.admin_area + " " + res.data.HeWeather6[0].basic.parent_city + " " + res.data.HeWeather6[0].basic.location
+        console.log('输出my', my)
+        console.log('输出liveweather', res.data.HeWeather6[0].now)
         that.setData({
-          my: my,
-          liveweather: res.data.HeWeather6[0].now
+          my: my, // 省-市-区
+          liveweather: res.data.HeWeather6[0].now // 天气相关
         })
         wx.request({
           url: 'https://free-api.heweather.com/s6/weather/forecast?key=9aab750e479648829ea03e5646a3bc36&location=' + countyCity,
-          data: {
-          },
+          data: {},
           header: {
             'content-type': 'application/json' // 默认值
           },
@@ -142,9 +147,8 @@ Page({
       county: item.countys[item.value[2]].name
     });
   },
-  onReachBottom: function () {
-  },
-  nono: function () { },
+  onReachBottom: function () {},
+  nono: function () {},
 
   /**
    * 生命周期函数--监听页面显示
@@ -194,8 +198,7 @@ Page({
   getlive: function (lon, lat) {
     wx.request({
       url: 'https://free-api.heweather.com/s6/weather/now?key=9aab750e479648829ea03e5646a3bc36&location=' + lon + ',' + lat,
-      data: {
-      },
+      data: {},
       header: {
         'content-type': 'application/json' // 默认值
       },
@@ -207,8 +210,7 @@ Page({
   getthree: function (lon, lat) {
     wx.request({
       url: 'https://free-api.heweather.com/s6/weather/forecast?key=9aab750e479648829ea03e5646a3bc36&location=' + lon + ',' + lat,
-      data: {
-      },
+      data: {},
       header: {
         'content-type': 'application/json' // 默认值
       },

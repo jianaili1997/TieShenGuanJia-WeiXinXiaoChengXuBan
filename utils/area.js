@@ -1,7 +1,5 @@
-
-function getAreaInfo(callBack){
-var str = [
-    {
+function getAreaInfo(callBack) {
+  var str = [{
       "code": "110000",
       "sheng": "11",
       "di": "00",
@@ -28080,6 +28078,22 @@ var str = [
       "xian": "00",
       "name": "台湾省",
       "level": 1
+    },
+    {
+      "code": "710100",
+      "sheng": "71",
+      "di": "01",
+      "xian": "00",
+      "name": "市辖区",
+      "level": 2
+    },
+    {
+      "code": "710000",
+      "sheng": "71",
+      "di": "01",
+      "xian": "01",
+      "name": "台北",
+      "level": 3
     },
     {
       "code": "810000",
