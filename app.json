@@ -25,8 +25,8 @@
     "pages/historyTodayDetail/historyTodayDetail",
     "pages/relaxMore/relaxMore",
     "pages/courier/courier",
-    "pages/news/news"
-   
+    "pages/news/news",
+    "pages/newsDetail/newsDetail"
   ],
   "window": {
     "navigationBarTextStyle": "black",
