@@ -1,4 +1,5 @@
 // pages/newsDetail/newsDetail.js
+var WxParse = require('../wxParse/wxParse.js')
 Page({
 
   /**
@@ -42,11 +43,15 @@ Page({
               }
             })
           } else {
-            let data = res.data.result
+            // let data = res.data.result
+            let data = res.data.result.content
+            const detail = res.data.result.detail
             that.setData({
               showDeatil: true,
-              data: data
+              data: detail
             })
+            console.log('输出获取到的data', data)
+            WxParse.wxParse('article', 'html', data, that, 5);
           }
         } else {
           wx.showModal({

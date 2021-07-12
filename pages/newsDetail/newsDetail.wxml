@@ -1,2 +1,15 @@
-<!--pages/newsDetail/newsDetail.wxml-->
-<text>pages/newsDetail/newsDetail.wxml</text>
+
+ <import src="../wxParse/wxParse.wxml"/>
+ <view class="warpper">
+<view class="title">{{data.title}}</view>
+   <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+   
+<view class="text-indent">
+<view>分类：{{data.category}} </view>
+<view>发布时间：{{data.date}}</view>
+</view>
+  
+
+</view>
+   
+  

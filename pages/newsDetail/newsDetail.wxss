@@ -1,1 +1,28 @@
-/* pages/newsDetail/newsDetail.wxss */
+
+@import '../wxParse/wxParse.wxss';
+
+.warpper{
+  /* margin: 0 auto; */
+  padding: 10rpx;
+  font-size: 14px;
+}
+/* 设置里面的图片居中显示 */
+image{
+margin-top: 20rpx;
+margin-bottom: 20rpx;
+}
+/* 让里面的文字首行缩进两个字符 */
+.wxParse-inline{
+  display: inline-block;
+  text-indent: 50rpx;
+}
+/* 设置文字加粗显示 */
+.title{
+font-weight: 600;
+margin-top: 20rpx;
+margin-bottom: 20rpx;
+text-align: center;
+}
+.text-indent{
+  text-indent: 50rpx;
+}
